@@ -8,6 +8,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-		<controls:ReteteControl></controls:ReteteControl>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition></ColumnDefinition>
+			<ColumnDefinition></ColumnDefinition>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition></RowDefinition>
+			<RowDefinition></RowDefinition>
+		</Grid.RowDefinitions>
+		
+		<Button x:Name="LoadReteteWindow" Click="LoadReteteWindow_Click">Incarca pagina de retete</Button>
+		<Button x:Name="LoadSIWindow" Grid.Column="1" Grid.Row="0" Click="LoadSIWindow_Click">Incarca pagina de SI</Button>
+		<Button x:Name="LoadMeniuWindow" Grid.Column="0" Grid.Row="1" Click="LoadMeniuWindow_Click" >Incarca meniul</Button>
+		<Button x:Name="LoadCategorieWindow" Grid.Column="1" Grid.Row="1" Click="LoadCategorieWindow_Click" >Incarca categorii</Button>
     </Grid>
 </Window>

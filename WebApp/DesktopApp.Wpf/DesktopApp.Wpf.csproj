@@ -91,29 +91,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controls\ReteteControl.xaml.cs">
-      <DependentUpon>ReteteControl.xaml</DependentUpon>
+    <Compile Include="Controls\CategorieWindow.xaml.cs">
+      <DependentUpon>CategorieWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MeniuWindow.xaml.cs">
+      <DependentUpon>MeniuWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ReteteWindow.xaml.cs">
+      <DependentUpon>ReteteWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SetIngredienteWindow.xaml.cs">
+      <DependentUpon>SetIngredienteWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataAccess\AppEntities.partial.cs" />
-    <Compile Include="DataAccess\Contracts\IAppEntities.cs" />
-    <Compile Include="Repository\FoodRepository.cs" />
-    <Compile Include="Repository\IFoodRepository.cs" />
-    <Compile Include="UnityConfiguration\UnityConfiguration.cs" />
-    <Page Include="Controls\ReteteControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="DataAccess\Categorie.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataAccess\Contracts\IAppEntities.cs" />
     <Compile Include="DataAccess\Entities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -137,6 +131,36 @@
     </Compile>
     <Compile Include="DataAccess\Set_ingrediente.cs">
       <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\FoodRepository.cs" />
+    <Compile Include="Repository\IFoodRepository.cs" />
+    <Compile Include="UnityConfiguration\UnityConfiguration.cs" />
+    <Compile Include="ViewModels\CategorieViewModel.cs" />
+    <Compile Include="ViewModels\RetetaPairViewModel.cs" />
+    <Compile Include="ViewModels\SIViewModel.cs" />
+    <Page Include="Controls\CategorieWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MeniuWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ReteteWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SetIngredienteWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -178,10 +202,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="DataAccess\Entities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Entities.Context.cs</LastGenOutput>
       <DependentUpon>Entities.edmx</DependentUpon>
+      <LastGenOutput>Entities.Context.cs</LastGenOutput>
     </Content>
     <Content Include="DataAccess\Entities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -189,9 +216,5 @@
       <LastGenOutput>Entities.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

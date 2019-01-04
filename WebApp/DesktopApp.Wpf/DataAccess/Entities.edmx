@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="sebicuModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="AppEntities.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categorie">
           <Key>
             <PropertyRef Name="categ_id" />
@@ -14,9 +14,9 @@
         </EntityType>
         <EntityType Name="Ingredient">
           <Key>
-            <PropertyRef Name="ingredient" />
+            <PropertyRef Name="ingred_id" />
           </Key>
-          <Property Name="ingred_id" Type="float" />
+          <Property Name="ingred_id" Type="float" Nullable="false" />
           <Property Name="ingredient" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <EntityType Name="Reteta">
@@ -34,26 +34,15 @@
         </EntityType>
         <EntityType Name="Set_ingrediente">
           <Key>
+            <PropertyRef Name="reteta_id" />
             <PropertyRef Name="ingred_id" />
           </Key>
-          <Property Name="reteta_id" Type="float" />
+          <Property Name="reteta_id" Type="float" Nullable="false" />
           <Property Name="ingred_id" Type="float" Nullable="false" />
           <Property Name="cantitate" Type="float" />
           <Property Name="um" Type="varchar" MaxLength="5" />
           <Property Name="comentarii" Type="varchar" MaxLength="255" />
         </EntityType>
-        <Association Name="FK__Ingredien__ingre__440B1D61">
-          <End Role="Set_ingrediente" Type="Self.Set_ingrediente" Multiplicity="0..1" />
-          <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Set_ingrediente">
-              <PropertyRef Name="ingred_id" />
-            </Principal>
-            <Dependent Role="Ingredient">
-              <PropertyRef Name="ingred_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Reteta__categ_id__3E52440B">
           <End Role="Categorie" Type="Self.Categorie" Multiplicity="0..1" />
           <End Role="Reteta" Type="Self.Reteta" Multiplicity="*" />
@@ -67,7 +56,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Set_ingre__retet__412EB0B6">
-          <End Role="Reteta" Type="Self.Reteta" Multiplicity="0..1" />
+          <End Role="Reteta" Type="Self.Reteta" Multiplicity="1" />
           <End Role="Set_ingrediente" Type="Self.Set_ingrediente" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Reteta">
@@ -78,15 +67,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="sebicuModelStoreContainer">
+        <EntityContainer Name="AppEntitiesStoreContainer">
           <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ingredient" EntityType="Self.Ingredient" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reteta" EntityType="Self.Reteta" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Set_ingrediente" EntityType="Self.Set_ingrediente" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Ingredien__ingre__440B1D61" Association="Self.FK__Ingredien__ingre__440B1D61">
-            <End Role="Set_ingrediente" EntitySet="Set_ingrediente" />
-            <End Role="Ingredient" EntitySet="Ingredient" />
-          </AssociationSet>
           <AssociationSet Name="FK__Reteta__categ_id__3E52440B" Association="Self.FK__Reteta__categ_id__3E52440B">
             <End Role="Categorie" EntitySet="Categorie" />
             <End Role="Reteta" EntitySet="Reteta" />
@@ -100,7 +85,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="sebicuModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="AppEntities" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Categorie">
           <Key>
             <PropertyRef Name="categ_id" />
@@ -111,11 +96,10 @@
         </EntityType>
         <EntityType Name="Ingredient">
           <Key>
-            <PropertyRef Name="ingredient1" />
+            <PropertyRef Name="ingred_id" />
           </Key>
-          <Property Name="ingred_id" Type="Double" />
+          <Property Name="ingred_id" Type="Double" Nullable="false" />
           <Property Name="ingredient1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Set_ingrediente" Relationship="Self.FK__Ingredien__ingre__440B1D61" FromRole="Ingredient" ToRole="Set_ingrediente" />
         </EntityType>
         <EntityType Name="Reteta">
           <Key>
@@ -134,14 +118,14 @@
         </EntityType>
         <EntityType Name="Set_ingrediente">
           <Key>
+            <PropertyRef Name="reteta_id" />
             <PropertyRef Name="ingred_id" />
           </Key>
-          <Property Name="reteta_id" Type="Double" />
+          <Property Name="reteta_id" Type="Double" Nullable="false" />
           <Property Name="ingred_id" Type="Double" Nullable="false" />
           <Property Name="cantitate" Type="Double" />
           <Property Name="um" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
           <Property Name="comentarii" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Ingredients" Relationship="Self.FK__Ingredien__ingre__440B1D61" FromRole="Set_ingrediente" ToRole="Ingredient" />
           <NavigationProperty Name="Reteta" Relationship="Self.FK__Set_ingre__retet__412EB0B6" FromRole="Set_ingrediente" ToRole="Reteta" />
         </EntityType>
         <Association Name="FK__Reteta__categ_id__3E52440B">
@@ -156,20 +140,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Ingredien__ingre__440B1D61">
-          <End Role="Set_ingrediente" Type="Self.Set_ingrediente" Multiplicity="0..1" />
-          <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Set_ingrediente">
-              <PropertyRef Name="ingred_id" />
-            </Principal>
-            <Dependent Role="Ingredient">
-              <PropertyRef Name="ingred_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Set_ingre__retet__412EB0B6">
-          <End Role="Reteta" Type="Self.Reteta" Multiplicity="0..1" />
+          <End Role="Reteta" Type="Self.Reteta" Multiplicity="1" />
           <End Role="Set_ingrediente" Type="Self.Set_ingrediente" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Reteta">
@@ -180,7 +152,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="AppEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categories" EntityType="Self.Categorie" />
           <EntitySet Name="Ingredients" EntityType="Self.Ingredient" />
           <EntitySet Name="Retetas" EntityType="Self.Reteta" />
@@ -188,10 +160,6 @@
           <AssociationSet Name="FK__Reteta__categ_id__3E52440B" Association="Self.FK__Reteta__categ_id__3E52440B">
             <End Role="Categorie" EntitySet="Categories" />
             <End Role="Reteta" EntitySet="Retetas" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Ingredien__ingre__440B1D61" Association="Self.FK__Ingredien__ingre__440B1D61">
-            <End Role="Set_ingrediente" EntitySet="Set_ingrediente" />
-            <End Role="Ingredient" EntitySet="Ingredients" />
           </AssociationSet>
           <AssociationSet Name="FK__Set_ingre__retet__412EB0B6" Association="Self.FK__Set_ingre__retet__412EB0B6">
             <End Role="Reteta" EntitySet="Retetas" />
@@ -203,9 +171,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="sebicuModelStoreContainer" CdmEntityContainer="AppEntities">
+        <EntityContainerMapping StorageEntityContainer="AppEntitiesStoreContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="sebicuModel.Categorie">
+            <EntityTypeMapping TypeName="AppEntities.Categorie">
               <MappingFragment StoreEntitySet="Categorie">
                 <ScalarProperty Name="categ_id" ColumnName="categ_id" />
                 <ScalarProperty Name="tip" ColumnName="tip" />
@@ -213,7 +181,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Ingredients">
-            <EntityTypeMapping TypeName="sebicuModel.Ingredient">
+            <EntityTypeMapping TypeName="AppEntities.Ingredient">
               <MappingFragment StoreEntitySet="Ingredient">
                 <ScalarProperty Name="ingred_id" ColumnName="ingred_id" />
                 <ScalarProperty Name="ingredient1" ColumnName="ingredient" />
@@ -221,7 +189,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Retetas">
-            <EntityTypeMapping TypeName="sebicuModel.Reteta">
+            <EntityTypeMapping TypeName="AppEntities.Reteta">
               <MappingFragment StoreEntitySet="Reteta">
                 <ScalarProperty Name="reteta_id" ColumnName="reteta_id" />
                 <ScalarProperty Name="nume" ColumnName="nume" />
@@ -235,7 +203,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Set_ingrediente">
-            <EntityTypeMapping TypeName="sebicuModel.Set_ingrediente">
+            <EntityTypeMapping TypeName="AppEntities.Set_ingrediente">
               <MappingFragment StoreEntitySet="Set_ingrediente">
                 <ScalarProperty Name="reteta_id" ColumnName="reteta_id" />
                 <ScalarProperty Name="ingred_id" ColumnName="ingred_id" />

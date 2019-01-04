@@ -1,0 +1,42 @@
+﻿<Window x:Class="DesktopApp.Wpf.Controls.SetIngredienteWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DesktopApp.Wpf.Controls"
+        mc:Ignorable="d"
+        Title="SetIngredienteWindow" Height="450" Width="800">
+    <Grid>
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="100" />
+				<RowDefinition  />
+			</Grid.RowDefinitions>
+			<Grid Grid.Row="0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition />
+					<ColumnDefinition />
+					<ColumnDefinition />
+				</Grid.ColumnDefinitions>
+				<Button Width="150" Height="50" Grid.Column="0" Click="Button_Click_1">Toate SI</Button>
+				<Button Width="150" Height="50" Grid.Column="1" Click="Button_Click" >SI fara comentarii</Button>
+				<Button Width="150" Height="50" Grid.Column="2" Click="Button_Click_2">SI > cantitate ciuperci</Button>
+				<Button Width="150" Height="50" Grid.Column="3" Click="Button_Click_3">SI MAX usturoi :)</Button>
+			</Grid>
+			<Grid Grid.Row="1">
+				<ListView x:Name="siList">
+					<ListView.View>
+						<GridView>
+							<GridViewColumn Header="Nume Reteta" DisplayMemberBinding="{Binding Path=NumeReteta}"></GridViewColumn>
+							<GridViewColumn Header="Nume Ingredient" DisplayMemberBinding="{Binding Path=NumeIngredient}"></GridViewColumn>
+							<GridViewColumn Header="Cantitate" DisplayMemberBinding="{Binding Path=cantitate}"></GridViewColumn>
+							<GridViewColumn Header="Unitate de masura" DisplayMemberBinding="{Binding Path=um}"></GridViewColumn>
+							<GridViewColumn Header="Comentarii" DisplayMemberBinding="{Binding Path=comentarii}"></GridViewColumn>
+						</GridView>
+					</ListView.View>
+				</ListView>
+			</Grid>
+		</Grid>
+	</Grid>
+</Window>

@@ -2,7 +2,7 @@
 
 namespace DesktopApp.Wpf.DataAccess
 {
-    public partial class AppEntities : IAppEntities
+    public partial class Entities : IAppEntities
     {
     }
 }

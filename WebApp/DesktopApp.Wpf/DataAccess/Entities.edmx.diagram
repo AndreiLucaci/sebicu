@@ -4,14 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0588c509d05b4893a45088a1f6f3b316" Name="Diagram1">
-        <EntityTypeShape EntityType="sebicuModel.Categorie" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="sebicuModel.Ingredient" Width="1.5" PointX="7.5" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="sebicuModel.Reteta" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="sebicuModel.Set_ingrediente" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
-        <AssociationConnector Association="sebicuModel.FK__Reteta__categ_id__3E52440B" ManuallyRouted="false" />
-        <AssociationConnector Association="sebicuModel.FK__Ingredien__ingre__440B1D61" ManuallyRouted="false" />
-        <AssociationConnector Association="sebicuModel.FK__Set_ingre__retet__412EB0B6" ManuallyRouted="false" />
+      <Diagram DiagramId="989403bca8224e1988e682dfe6b3171d" Name="Diagram1">
+        <EntityTypeShape EntityType="AppEntities.Categorie" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppEntities.Ingredient" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppEntities.Reteta" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppEntities.Set_ingrediente" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="AppEntities.FK__Reteta__categ_id__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="AppEntities.FK__Set_ingre__retet__412EB0B6" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

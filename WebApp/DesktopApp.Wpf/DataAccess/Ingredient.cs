@@ -14,9 +14,7 @@ namespace DesktopApp.Wpf.DataAccess
     
     public partial class Ingredient
     {
-        public Nullable<double> ingred_id { get; set; }
+        public double ingred_id { get; set; }
         public string ingredient1 { get; set; }
-    
-        public virtual Set_ingrediente Set_ingrediente { get; set; }
     }
 }

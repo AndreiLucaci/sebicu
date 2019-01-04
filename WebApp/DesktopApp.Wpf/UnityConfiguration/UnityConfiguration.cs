@@ -9,7 +9,7 @@ namespace DesktopApp.Wpf.UnityConfiguration
     {
         public static IUnityContainer ConfigureWithDbContext(this IUnityContainer container)
         {
-            container.RegisterType<IAppEntities, AppEntities>();
+            container.RegisterType<IAppEntities, Entities>();
 
             return container;
         }

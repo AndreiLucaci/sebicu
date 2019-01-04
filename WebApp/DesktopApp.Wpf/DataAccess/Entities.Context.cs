@@ -13,9 +13,9 @@ namespace DesktopApp.Wpf.DataAccess
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AppEntities : DbContext
+    public partial class Entities : DbContext
     {
-        public AppEntities()
+        public Entities()
             : base("name=AppEntities")
         {
         }

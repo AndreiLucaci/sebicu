@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DesktopApp.Wpf.Controls;
 
 namespace DesktopApp.Wpf
 {
@@ -23,6 +24,46 @@ namespace DesktopApp.Wpf
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void LoadReteteWindow_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            var reteteWindow = new ReteteWindow();
+
+            reteteWindow.ShowDialog();
+
+            this.Show();
+        }
+
+        private void LoadSIWindow_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            var siWindow = new SetIngredienteWindow();
+
+            siWindow.ShowDialog();
+
+            this.Show();
+        }
+
+        private void LoadMeniuWindow_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            var meniuWindow = new MeniuWindow();
+
+            meniuWindow.ShowDialog();
+
+            this.Show();
+        }
+
+        private void LoadCategorieWindow_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            var categorieWindow = new CategorieWindow();
+
+            categorieWindow.ShowDialog();
+
+            this.Show();
         }
     }
 }
