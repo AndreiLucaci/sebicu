@@ -1,0 +1,25 @@
+﻿<Window x:Class="DesktopApp.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DesktopApp.Wpf"
+        xmlns:controls="clr-namespace:DesktopApp.Wpf.Controls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition></ColumnDefinition>
+			<ColumnDefinition></ColumnDefinition>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition></RowDefinition>
+			<RowDefinition></RowDefinition>
+		</Grid.RowDefinitions>
+		
+		<Button x:Name="LoadReteteWindow" Click="LoadReteteWindow_Click">Incarca pagina de retete</Button>
+		<Button x:Name="LoadSIWindow" Grid.Column="1" Grid.Row="0" Click="LoadSIWindow_Click">Incarca pagina de SI</Button>
+		<Button x:Name="LoadMeniuWindow" Grid.Column="0" Grid.Row="1" Click="LoadMeniuWindow_Click" >Incarca meniul</Button>
+		<Button x:Name="LoadCategorieWindow" Grid.Column="1" Grid.Row="1" Click="LoadCategorieWindow_Click" >Incarca categorii</Button>
+    </Grid>
+</Window>
