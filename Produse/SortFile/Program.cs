@@ -18,13 +18,13 @@ namespace SortFile
 
         private static IEnumerable<Produs> ReadProducts(string fileName)
         {
+            var rgx = new Regex(@"(\w+?)\s+?-\s+?<(\d+?)>\s+?-\s+?<(\w+?)>\s+?-\s+?<(\d+?)>\s+?-\s+?<(\d+?)>\.");
+
             using (var sr = new StreamReader(fileName))
             {
                 string line;
                 while (!string.IsNullOrEmpty(line = sr.ReadLine()))
                 {
-                    var rgx = new Regex(
-                        @"(\w+?)\s+?-\s+?<(\d+?)>\s+?-\s+?<(\w+?)>\s+?-\s+?<(\d+?)>\s+?-\s+?<(\d+?)>\.");
                     var match = rgx.Match(line);
                     if (match.Success && match.Groups.Count == 6)
                     {
